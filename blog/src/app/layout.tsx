@@ -1,43 +1,28 @@
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const robotoMono = Roboto_Mono({
-  variable: "--font-roboto-mono",
-  subsets: ["latin"],
-});
+import Navbar from "./components/layout/Navbar";
 
 export const metadata: Metadata = {
-  title: "Niko Heikkila's Blog",
-  description: "Personal blog website and portfolio",
+    title: "Niko Heikkila's Blog",
+    description: "Personal blog website and portfolio"
 };
 
 export default function RootLayout({
-  children,
+    children
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${inter.variable} ${robotoMono.variable} antialiased min-h-screen flex flex-col`}
-      >
-        <Navbar />
-        <main className="flex-grow container mx-auto px-4 py-8">
-          {children}
-        </main>
-        <footer className="bg-gray-100 dark:bg-gray-900 py-6 text-center text-sm">
-          <div className="container mx-auto">
-            © {new Date().getFullYear()} Niko Heikkila. All rights reserved.
-          </div>
-        </footer>
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en" suppressHydrationWarning>
+            <body className="flex min-h-screen flex-col bg-gray-50 font-sans text-gray-900 antialiased transition-colors dark:bg-gray-900 dark:text-gray-100">
+                <Navbar />
+                <main className="flex-grow">{children}</main>
+                <footer className="border-t bg-white py-4 text-center text-sm dark:border-gray-700 dark:bg-gray-800">
+                    <div className="mx-auto max-w-6xl px-4">
+                        © {new Date().getFullYear()} Niko Heikkila. All rights reserved.
+                    </div>
+                </footer>
+            </body>
+        </html>
+    );
 }

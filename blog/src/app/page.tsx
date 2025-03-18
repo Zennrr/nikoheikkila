@@ -1,65 +1,88 @@
-import Image from "next/image";
-import Link from "next/link";
+import { Card } from "./components/ui/Card";
+import { ButtonLink } from "./components/ui/Button";
+
+const SAMPLE_POSTS = [
+  {
+    id: 1,
+    title: "test1",
+    description: "testing 1",
+    href: "/blog/test1",
+    date: "March 15, 2025"
+  },
+  {
+    id: 2,
+    title: "test2",
+    description: "testing2",
+    href: "/blog/teest2",
+    date: "March 12, 2025"
+  },
+  {
+    id: 3,
+    title: "test4",
+    description: "testing3",
+    href: "/blog/test3",
+    date: "March 10, 2025"
+  }
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-8 py-12">
-      <section className="flex flex-col md:flex-row gap-8 items-center">
-        <div className="md:w-1/2 space-y-6">
-          <h1 className="text-4xl font-bold">Welcome to My Blog</h1>
-          <p className="text-xl">
-            I write about technology, programming, and personal experiences.
-          </p>
-          <div className="flex gap-4">
-            <Link 
-              href="/blog"
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Read Blog
-            </Link>
-            <Link
-              href="/about"
-              className="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            >
-              About Me
-            </Link>
-          </div>
-        </div>
-        <div className="md:w-1/2 flex justify-center">
-          <Image
-            src="/placeholder.jpg"
-            alt="Blog illustration"
-            width={400}
-            height={400}
-            className="rounded-lg"
-            priority
-          />
-        </div>
-      </section>
-      
-      <section className="mt-12">
-        <h2 className="text-2xl font-bold mb-6">Recent Posts</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* dynamically generated from blog posts */}
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 bg-gray-200 dark:bg-gray-700"></div>
-              <div className="p-4">
-                <h3 className="font-bold text-lg mb-2">Sample Blog Post {i}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  This is a short description of your blog post.
-                </p>
-                <Link
-                  href={`/blog/sample-post-${i}`}
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
-                >
-                  Read more →
-                </Link>
-              </div>
+    <div style={{ fontFamily: "Helvetica" }} className="bg-white text-gray-900">
+
+      <main className="mx-auto flex max-w-5xl flex-col gap-16 px-4 py-16">
+        <section className="flex flex-col items-center gap-12 md:flex-row">
+          <div className="space-y-4 md:w-1/2">
+            <h1 className="text-5xl leading-tight font-extrabold text-gray-900">
+              Welcome to My <span className="text-blue-500">Blog</span>
+            </h1>
+            <p className="text-lg text-gray-600">
+              Here I share anything from my career to my interests in software development.
+            </p>
+            <div className="flex gap-4">
+              <ButtonLink
+                href="/blog"
+                size="lg"
+                className="bg-blue-500 text-white hover:bg-blue-600"
+              >
+                Read Blog
+              </ButtonLink>
+              <ButtonLink
+                href="/about"
+                variant="outline"
+                size="lg"
+                className="border-blue-500 text-blue-500 hover:bg-blue-50"
+              >
+                About Me
+              </ButtonLink>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        </section>
+
+        <section>
+          <h2 className="mb-8 text-3xl font-bold text-gray-900">Recent Posts</h2>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {SAMPLE_POSTS.map((post) => (
+              <Card
+                key={post.id}
+                title={post.title}
+                description={post.description}
+                href={post.href}
+                date={post.date}
+              />
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <ButtonLink
+              href="/blog"
+              variant="outline"
+              size="lg"
+              className="border-blue-500 text-blue-500 hover:bg-blue-50"
+            >
+              View All Posts
+            </ButtonLink>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
