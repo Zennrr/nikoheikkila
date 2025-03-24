@@ -12,7 +12,7 @@ export default function About() {
                 <div className="space-y-6 md:w-2/3">
                     
                     <p>
-                        Hi, I'm Niko Heikkila. I'm a software engineer and web developer based in Tampere, Finland.
+                        Hi, Im Niko Heikkila. Im a software engineer and web developer based in Tampere, Finland.
                     </p>
 
                     <div className="mt-4 flex gap-4">
