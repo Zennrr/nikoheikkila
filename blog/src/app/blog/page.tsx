@@ -1,71 +1,60 @@
 "use client";
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { serialize } from 'next-mdx-remote/serialize';
+import { useEffect, useState } from "react";
+import { Card } from "../components/ui/Card";
+import { ButtonLink } from "../components/ui/Button";
 
 export default function Blog() {
   const [posts, setPosts] = useState([]);
-  const [selectedPost, setSelectedPost] = useState<MDXRemoteSerializeResult | null>(null);
 
   useEffect(() => {
     async function fetchPosts() {
-      const res = await fetch('/api/get-posts');
+      const res = await fetch("/api/get-posts");
       if (res.ok) {
         const data = await res.json();
         setPosts(data);
       } else {
-        console.error('Failed to fetch posts');
+        console.error("Failed to fetch posts");
       }
     }
     fetchPosts();
   }, []);
 
-  const handleDelete = async (filename) => {
-    const res = await fetch('/api/delete', {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ filename }),
-    });
-
-    if (res.ok) {
-      window.location.reload();
-    }
-  };
-
-  const handlePostClick = async (filename) => {
-    const res = await fetch(`/api/fetch?filename=${filename}`);
-    if (res.ok) {
-      const { content } = await res.json();
-      const mdxSource = await serialize(content);
-      setSelectedPost(mdxSource);
-    } else {
-      console.error('Failed to fetch post');
-    }
-  };
-
   return (
-    <div className="py-12">
-      <h1 className="mb-8 text-3xl font-bold">Blog</h1>
-      <ul>
+    <div className="flex flex-col items-center py-12 px-4">
+      <h1 className="mb-8 text-4xl font-extrabold text-gray-900">Blog posts</h1>
+      <div className="w-full max-w-3xl space-y-6">
         {posts.map((post) => (
-          <li key={post.filename} className="flex justify-between">
-            <Link href="#" onClick={() => handlePostClick(post.filename)}>
-              {post.title}
-            </Link>
-            <button
-              onClick={() => handleDelete(post.filename)}
-              className="text-red-500 hover:text-red-700"
-            >
-              Delete
-            </button>
-          </li>
+          <div
+            key={post.filename}
+            className="p-6 bg-white rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition-shadow"
+          >
+            <h2 className="text-2xl font-semibold text-gray-800 mb-2">{post.title}</h2>
+            <p className="text-gray-600 mb-4">{post.excerpt}</p>
+            <p className="text-sm text-gray-400 mb-4">
+              {new Date(post.date).toLocaleDateString()}
+            </p>
+            <div className="flex justify-between items-center">
+              <ButtonLink
+                href={`/blog/${post.filename.replace(/\.mdx?$/, "")}`}
+                className="bg-blue-500 text-white hover:bg-blue-600 px-4 py-2 rounded-md"
+              >
+                Read More
+              </ButtonLink>
+            </div>
+          </div>
         ))}
-      </ul>
-      {selectedPost && <MDXRemote {...selectedPost} />}
+      </div>
+      <div className="mt-10 text-center">
+        <ButtonLink
+          href="/blog"
+          variant="outline"
+          size="lg"
+          className="border-blue-500 text-blue-500 hover:bg-blue-50"
+        >
+          View All Posts
+        </ButtonLink>
+      </div>
     </div>
   );
 }

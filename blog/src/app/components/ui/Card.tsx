@@ -1,29 +1,24 @@
 import Link from "next/link";
 
-export type CardProps = {
-    title: string;
-    description: string;
-    href: string;
-    imageUrl?: string;
-    date?: string;
-};
+interface CardProps {
+  title: string;
+  description: string;
+  href: string;
+  date: string;
+}
 
 export function Card({ title, description, href, date }: CardProps) {
-    return (
-        <div className="flex h-full flex-col overflow-hidden rounded-md border bg-white transition-all duration-300 hover:shadow-md dark:border-gray-700 dark:bg-gray-800">
-            <div className="flex flex-grow flex-col p-4">
-                {date && <p className="mb-1 text-xs text-gray-500 dark:text-gray-400">{date}</p>}
-                <h3 className="mb-1 text-base font-bold">{title}</h3>
-                <p className="mb-3 flex-grow text-sm text-gray-600 dark:text-gray-300">
-                    {description}
-                </p>
-                <Link
-                    href={href}
-                    className="mt-auto inline-flex items-center text-sm text-blue-600 hover:underline dark:text-blue-400"
-                >
-                    Read more
-                </Link>
-            </div>
-        </div>
-    );
+  return (
+    <div className="p-6 bg-white rounded-lg shadow-md border border-gray-200">
+      <h2 className="text-xl font-semibold mb-2">{title}</h2>
+      <p className="text-gray-600 mb-4">{description}</p>
+      <p className="text-sm text-gray-400 mb-4">{new Date(date).toLocaleDateString()}</p>
+      <Link
+        href={href}
+        className="text-blue-500 hover:underline no-underline"
+      >
+        Read More
+      </Link>
+    </div>
+  );
 }
