@@ -5,14 +5,13 @@ export default function About() {
 
             <div className="flex flex-col gap-8 md:flex-row">
                 <div className="md:w-1/3">
-                    <div className="overflow-hidden rounded-lg">
-                    </div>
+                    <div className="overflow-hidden rounded-lg"></div>
                 </div>
 
                 <div className="space-y-6 md:w-2/3">
-                    
                     <p>
-                        Hi, Im Niko Heikkila. Im a software engineer and web developer based in Tampere, Finland.
+                        Hi, Im Niko Heikkila. Im a software engineer and web developer based in
+                        Tampere, Finland.
                     </p>
 
                     <div className="mt-4 flex gap-4">

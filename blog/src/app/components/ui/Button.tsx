@@ -67,7 +67,7 @@ export function ButtonLink({
     return (
         <Link
             href={href}
-            className={`inline-flex items-center rounded-md transition-colors no-underline ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
+            className={`inline-flex items-center rounded-md no-underline transition-colors ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
             {...props}
         >
             {children}
