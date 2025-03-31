@@ -1,10 +1,10 @@
 {
-  "commit": "bf20c72ed2d1bf127b8587a061723895e9e16d5d",
-  "generated": "2025-03-31T16:23:31.966Z",
+  "commit": "",
+  "generated": "Mon, 31 Mar 2025 16:34:02 GMT",
   "metadata": [
     {
       "__outstatic": {
-        "commit": "bf20c72ed2d1bf127b8587a061723895e9e16d5d",
+        "commit": "36fea15bc70be2117fb5cfee903183eb4685488e",
         "hash": "1024804803",
         "path": "outstatic/content/posts/first-blog-post.mdx"
       },
