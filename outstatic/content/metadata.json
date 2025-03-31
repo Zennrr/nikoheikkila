@@ -1,0 +1,22 @@
+{
+  "commit": "",
+  "generated": "2025-03-31T16:22:56.677Z",
+  "metadata": [
+    {
+      "__outstatic": {
+        "commit": "",
+        "hash": "3636357399",
+        "path": "outstatic/content/posts/first-blog-post.mdx"
+      },
+      "author": {
+        "name": "Niko Heikkilä",
+        "picture": "https://avatars.githubusercontent.com/u/105411101?v=4"
+      },
+      "collection": "posts",
+      "publishedAt": "2025-03-31T16:40:05.395Z",
+      "slug": "first-blog-post",
+      "status": "draft",
+      "title": "First blog post"
+    }
+  ]
+}
