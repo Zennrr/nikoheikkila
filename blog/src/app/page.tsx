@@ -5,7 +5,15 @@ import { ButtonLink } from "./components/ui/Button";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [recentPosts, setRecentPosts] = useState([]);
+  interface Post {
+    filename: string;
+    title: string;
+    excerpt: string;
+    date: string;
+    publishedAt?: string;
+  }
+
+  const [recentPosts, setRecentPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     async function fetchPosts() {
@@ -13,7 +21,11 @@ export default function Home() {
       if (res.ok) {
         const data = await res.json();
         const sortedPosts = data
-          .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+          .map((post: Post) => ({
+            ...post,
+            publishedAt: post.publishedAt,
+          }))
+          .sort((a: Post, b: Post) => (new Date(b.publishedAt || 0).getTime()) - (new Date(a.publishedAt || 0).getTime()))
           .slice(0, 3);
         setRecentPosts(sortedPosts);
       } else {
@@ -24,7 +36,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div style={{ fontFamily: "Helvetica" }} className="bg-white text-gray-900">
+    <div className="font-helvetica bg-white text-gray-900">
       <main className="mx-auto flex max-w-5xl flex-col gap-16 px-4 py-16">
         <section className="flex flex-col items-center gap-12 md:flex-row">
           <div className="space-y-4 md:w-1/2">
@@ -57,15 +69,15 @@ export default function Home() {
         <section>
           <h2 className="mb-8 text-3xl font-bold text-gray-900">Recent Posts</h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {recentPosts.map((post) => (
-              <Card
-                key={post.filename}
-                title={post.title}
-                description={post.excerpt}
-                href={`/blog/${post.filename.replace(/\.mdx?$/, "")}`}
-                date={post.date}
-              />
-            ))}
+          {recentPosts.map((post) => (
+          <Card
+          key={`${post.filename}-${post.publishedAt}`} 
+          title={post.title}
+          description={post.excerpt}
+          href={`/blog/${post.filename.replace(/\.mdx?$/, "")}`}
+          date={post.publishedAt ?? null}
+          />
+          ))}
           </div>
           <div className="mt-10 text-center">
             <ButtonLink

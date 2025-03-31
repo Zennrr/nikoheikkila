@@ -2,36 +2,35 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote } from 'next-mdx-remote';
 
-const postsDirectory = path.join(process.cwd(), 'src/app/posts');
+const postsDirectory = path.join(process.cwd(), '../outstatic/content/posts');
 
-export async function generateStaticParams() {
-  const filenames = fs.readdirSync(postsDirectory);
-  return filenames.map((filename) => ({
-    slug: filename.replace(/\.mdx?$/, ''),
-  }));
-}
+export default async function PostPage({ params }: { params: { slug: string } }) {
+  const slug = await Promise.resolve(params.slug);
 
-export async function generateMetadata({ params }) {
-  const filePath = path.join(postsDirectory, `${params.slug}.mdx`);
-  const fileContents = fs.readFileSync(filePath, 'utf8');
-  const { data } = matter(fileContents);
-  return {
-    title: data.title,
-  };
-}
-
-export default async function PostPage({ params }) {
-  const filePath = path.join(postsDirectory, `${params.slug}.mdx`);
+  const filePath = path.join(postsDirectory, `${slug}.mdx`);
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContents);
   const mdxSource = await serialize(content);
 
   return (
-    <div className="py-12">
-      <h1 className="mb-8 text-3xl font-bold">{data.title}</h1>
-      <MDXRemote {...mdxSource} />
+    <div className="prose mx-auto py-12">
+      <h1>{data.title}</h1>
+      <p className="text-gray-500">{new Date(data.publishedAt).toLocaleDateString()}</p>
+      <div dangerouslySetInnerHTML={{ __html: mdxSource }} />
     </div>
   );
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const slug = await Promise.resolve(params.slug);
+
+  const filePath = path.join(postsDirectory, `${slug}.mdx`);
+  const fileContents = fs.readFileSync(filePath, 'utf8');
+  const { data } = matter(fileContents);
+
+  return {
+    title: data.title,
+    description: data.excerpt || '',
+  };
 }
