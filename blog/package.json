@@ -15,9 +15,11 @@
         "@mdx-js/loader": "^2.3.0",
         "@mdx-js/react": "^2.3.0",
         "@next/mdx": "15.2.4",
+        "@tailwindcss/typography": "^0.5.16",
         "axios": "^1.8.4",
         "date-fns": "^4.1.0",
         "gray-matter": "^4.0.3",
+        "marked": "^15.0.8",
         "next": "15.2.4",
         "next-mdx-remote": "^5.0.0",
         "next-themes": "^0.4.6",
@@ -38,8 +40,8 @@
         "@tailwindcss/postcss": "^4.0.14",
         "@tailwindcss/postcss7-compat": "^2.2.17",
         "@types/node": "^20.5.9",
-        "@types/react": "19.0.12",
-        "@types/react-dom": "19.0.4",
+        "@types/react": "^19.0.12",
+        "@types/react-dom": "^19.0.4",
         "@vitest/browser": "^3.0.9",
         "@vitest/coverage-v8": "^3.0.9",
         "autoprefixer": "^9.8.8",
@@ -61,9 +63,5 @@
             "plugin:storybook/recommended",
             "plugin:storybook/recommended"
         ]
-    },
-    "overrides": {
-        "@types/react": "19.0.12",
-        "@types/react-dom": "19.0.4"
     }
 }
