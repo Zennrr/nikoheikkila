@@ -11,16 +11,19 @@ export default function Blog() {
         .map((filename) => {
             const filePath = path.join(postsDirectory, filename);
             const fileContents = fs.readFileSync(filePath, "utf8");
-            const { data } = matter(fileContents);
+            const { data, content } = matter(fileContents);
 
             if (!data.title || !data.slug || !data.publishedAt) {
                 return null;
             }
 
+            const snippet = content.slice(0, 50) + (content.length > 150 ? "..." : "");
+
             return {
                 slug: data.slug,
                 title: data.title,
                 excerpt: data.excerpt || "",
+                snippet,
                 date: data.publishedAt
             };
         })
@@ -41,6 +44,7 @@ export default function Blog() {
                         <p className="mb-4 text-sm text-gray-400">
                             {new Date(post.date).toLocaleDateString()}
                         </p>
+                        <p className="mb-4 text-gray-700">{post.snippet}</p>
                         <div className="flex items-center justify-between">
                             <Link
                                 href={`/blog/${post.slug}`}
