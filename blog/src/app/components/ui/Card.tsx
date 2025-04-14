@@ -14,11 +14,14 @@ export function Card({ title, description, href, date }: CardProps) {
             : "Unknown Date";
 
     return (
-        <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-            <h2 className="mb-2 text-xl font-semibold">{title}</h2>
-            <p className="mb-4 text-gray-600">{description}</p>
-            <p className="mb-4 text-sm text-gray-400">{formattedDate}</p>
-            <Link href={href} className="text-blue-500 no-underline hover:underline">
+        <div className="rounded-lg border border-blue-300 bg-blue-700 p-6 shadow-md">
+            <h2 className="mb-2 text-xl font-semibold text-white">{title}</h2>
+            <p className="mb-4 text-blue-200">{description}</p>
+            <p className="mb-4 text-sm text-blue-300">{formattedDate}</p>
+            <Link
+                href={href}
+                className="text-blue-300 no-underline hover:text-blue-200 hover:underline"
+            >
                 Read More
             </Link>
         </div>

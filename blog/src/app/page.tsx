@@ -40,16 +40,16 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="font-helvetica bg-white text-gray-900">
+        <div>
             <main className="mx-auto flex max-w-5xl flex-col gap-16 px-4 py-16">
                 <section className="flex flex-col items-center gap-12 md:flex-row">
                     <div className="space-y-4 md:w-1/2">
-                        <h1 className="text-4xl leading-tight font-extrabold text-gray-900">
+                        <h1 className="text-4xl leading-tight font-extrabold">
                             Welcome to the blog of{" "}
-                            <span className="text-blue-500">Niko Heikkilä</span>
+                            <span className="text-blue-400">Niko Heikkilä</span>
                         </h1>
-                        <p className="text-lg text-gray-600">
-                            In this blog I write about my projects, experiences, thoughts and
+                        <p className="text-lg">
+                            In this blog I write about my projects, experiences, thoughts, and
                             general news about my career.
                         </p>
                         <div className="flex gap-4">
@@ -62,9 +62,8 @@ export default function Home() {
                             </ButtonLink>
                             <ButtonLink
                                 href="/about"
-                                variant="outline"
                                 size="lg"
-                                className="border-blue-500 text-blue-500 hover:bg-blue-50"
+                                className="bg-blue-500 text-white hover:bg-blue-600"
                             >
                                 About Me
                             </ButtonLink>
@@ -73,7 +72,7 @@ export default function Home() {
                 </section>
 
                 <section>
-                    <h2 className="mb-8 text-3xl font-bold text-gray-900">Recent Posts</h2>
+                    <h2 className="mb-8 text-3xl font-bold">Recent Posts</h2>
                     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                         {recentPosts.map((post) => (
                             <Card
@@ -88,9 +87,8 @@ export default function Home() {
                     <div className="mt-10 text-center">
                         <ButtonLink
                             href="/blog"
-                            variant="outline"
                             size="lg"
-                            className="border-blue-500 text-blue-500 hover:bg-blue-50"
+                            className="bg-blue-500 text-white hover:bg-blue-600"
                         >
                             View All Posts
                         </ButtonLink>

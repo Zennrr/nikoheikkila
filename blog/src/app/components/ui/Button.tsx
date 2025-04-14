@@ -24,8 +24,8 @@ type ButtonProps = BaseButtonProps & {
 
 const variantStyles = {
     primary: "bg-blue-600 text-white hover:bg-blue-700",
-    secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300 ",
-    outline: "border border-gray-300 "
+    secondary: "bg-blue-300 text-white hover:bg-blue-400",
+    outline: "border border-blue-300 text-blue-300 hover:bg-blue-400 hover:text-white"
 };
 
 const sizeStyles = {

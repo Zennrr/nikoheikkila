@@ -1,61 +1,80 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import Link from "next/link";
+"use client";
 
-const postsDirectory = path.join(process.cwd(), "../outstatic/content/posts");
+import { Card } from "../components/ui/Card";
+import { ButtonLink } from "../components/ui/Button";
+import { useEffect, useState } from "react";
 
 export default function Blog() {
-    const filenames = fs.readdirSync(postsDirectory);
-    const posts = filenames
-        .map((filename) => {
-            const filePath = path.join(postsDirectory, filename);
-            const fileContents = fs.readFileSync(filePath, "utf8");
-            const { data, content } = matter(fileContents);
+    interface Post {
+        filename: string;
+        title: string;
+        excerpt: string;
+        date: string;
+        publishedAt?: string;
+    }
 
-            if (!data.title || !data.slug || !data.publishedAt) {
-                return null;
+    const [posts, setPosts] = useState<Post[]>([]);
+
+    useEffect(() => {
+        async function fetchPosts() {
+            const res = await fetch("/api/get-posts");
+            if (res.ok) {
+                const data = await res.json();
+                const sortedPosts = data
+                    .map((post: Post) => ({
+                        ...post,
+                        publishedAt: post.publishedAt
+                    }))
+                    .sort(
+                        (a: Post, b: Post) =>
+                            new Date(b.publishedAt || 0).getTime() -
+                            new Date(a.publishedAt || 0).getTime()
+                    );
+                setPosts(sortedPosts);
+            } else {
+                console.error("Failed to fetch posts");
             }
-
-            const snippet = content.slice(0, 50) + (content.length > 150 ? "..." : "");
-
-            return {
-                slug: data.slug,
-                title: data.title,
-                excerpt: data.excerpt || "",
-                snippet,
-                date: data.publishedAt
-            };
-        })
-        .filter((post) => post !== null)
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        }
+        fetchPosts();
+    }, []);
 
     return (
-        <div className="flex flex-col items-center px-4 py-12">
-            <h1 className="mb-8 text-4xl font-extrabold text-gray-900">Blog</h1>
-            <div className="w-full max-w-3xl space-y-6">
-                {posts.map((post) => (
-                    <div
-                        key={post.slug}
-                        className="rounded-lg border border-gray-200 bg-white p-6 shadow-md transition-shadow hover:shadow-lg"
-                    >
-                        <h2 className="mb-2 text-2xl font-semibold text-gray-800">{post.title}</h2>
-                        <p className="mb-4 text-gray-600">{post.excerpt}</p>
-                        <p className="mb-4 text-sm text-gray-400">
-                            {new Date(post.date).toLocaleDateString()}
-                        </p>
-                        <p className="mb-4 text-gray-700">{post.snippet}</p>
-                        <div className="flex items-center justify-between">
-                            <Link
-                                href={`/blog/${post.slug}`}
-                                className="rounded-md bg-blue-500 px-4 py-2 text-white no-underline hover:bg-blue-600"
-                            >
-                                Read More
-                            </Link>
-                        </div>
+        <div className="font-helvetica bg-dark-blue text-white">
+            <main className="mx-auto flex max-w-5xl flex-col gap-16 px-4 py-16">
+                <section className="text-center">
+                    <h1 className="text-4xl font-extrabold">
+                        Welcome to the <span className="text-blue-400">Blog</span>
+                    </h1>
+                    <p className="mt-4 text-lg">
+                        Explore my latest posts about projects, experiences, and thoughts.
+                    </p>
+                </section>
+
+                <section>
+                    <h2 className="mb-8 text-3xl font-bold">All Posts</h2>
+                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        {posts.map((post) => (
+                            <Card
+                                key={`${post.filename}-${post.publishedAt}`}
+                                title={post.title}
+                                description={post.excerpt}
+                                href={`/blog/${post.filename.replace(/\.mdx?$/, "")}`}
+                                date={post.publishedAt ?? null}
+                            />
+                        ))}
                     </div>
-                ))}
-            </div>
+                </section>
+
+                <div className="mt-10 text-center">
+                    <ButtonLink
+                        href="/"
+                        size="lg"
+                        className="bg-blue-500 text-white hover:bg-blue-600"
+                    >
+                        Back to Home
+                    </ButtonLink>
+                </div>
+            </main>
         </div>
     );
 }
