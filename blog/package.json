@@ -10,7 +10,7 @@
         "lint": "next lint",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
-        "prepare": "cd .. && husky nextjs/.husky"
+        "prepare": "cd .. && husky blog/.husky"
     },
     "dependencies": {
         "@heroicons/react": "^2.2.0",
