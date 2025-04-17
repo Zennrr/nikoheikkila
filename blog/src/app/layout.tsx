@@ -19,7 +19,7 @@ export default function RootLayout({
                 <main className="flex-grow">{children}</main>
                 <footer className="bg-color border-t py-4 text-center text-sm">
                     <div className="mx-auto max-w-6xl px-4">
-                        © {new Date().getFullYear()} Niko Heikkila. All rights reserved.
+                        © {new Date().getFullYear()} Niko Heikkilä. All rights reserved.
                     </div>
                 </footer>
             </body>

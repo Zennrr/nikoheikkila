@@ -35,7 +35,7 @@ export default function Blog() {
                 console.error("Failed to fetch posts");
             }
         }
-        fetchPosts();
+        void fetchPosts();
     }, []);
 
     return (
