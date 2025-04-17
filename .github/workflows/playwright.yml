@@ -14,11 +14,21 @@ jobs:
               with:
                   node-version: lts/*
             - name: Install dependencies
-              run: npm ci
+              run: cd blog && npm ci
+
+            - name: Setup .env for services
+              run: |
+                  echo "${{ secrets.ENV_VALUES }}" > blog/.env.local
+
+            - name: Start nextjs server
+              run: cd blog && npm run dev &
+
             - name: Install Playwright Browsers
-              run: npx playwright install --with-deps
+              run: cd blog && npx playwright install --with-deps
+
             - name: Run Playwright tests
-              run: npx playwright test
+              run: cd blog && npx playwright test
+
             - uses: actions/upload-artifact@v4
               if: ${{ !cancelled() }}
               with:
