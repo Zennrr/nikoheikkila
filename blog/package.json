@@ -10,7 +10,8 @@
         "lint": "next lint",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
-        "prepare": "husky"
+        "prepare": "husky",
+        "type-check": "tsc --noEmit"
     },
     "dependencies": {
         "@heroicons/react": "^2.2.0",
