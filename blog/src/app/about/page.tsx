@@ -21,7 +21,7 @@ export default function About() {
                     <div>
                         <h1 className="text-4xl font-extrabold">About Me</h1>
                         <p className="mt-4 text-lg">
-                            Hi, I'm Niko Heikkilä, a software engineer and web developer based in
+                            Hi, Im Niko Heikkilä, a software engineer and web developer based in
                             Tampere, Finland. I have experience ranging from personal projects to
                             working with larger teams on various applications in both frontend and
                             backend. Most of my experience is in web development, but I also have
@@ -30,8 +30,8 @@ export default function About() {
                         </p>
                         <p className="mt-4 text-lg">
                             Coding has been a part of my life since junior high school. I started
-                            properly learning programming in SASKY's "Tampereen Palvelualan
-                            Ammattiopisto" vocational school studying game development. After
+                            properly learning programming in SASKYs &quot;Tampereen Palvelualan
+                            Ammattiopisto&quot; vocational school studying game development. After
                             graduating from SASKY, I got accepted into Tampere University of Applied
                             Sciences to study software engineering. There I have learned most of my
                             skills and experiences, mostly in web development and a bit of mobile
@@ -50,7 +50,7 @@ export default function About() {
                             seamless user experiences and robust APIs.
                         </p>
                         <p className="mt-4 text-lg">
-                            Over the years, I've worked on various projects, ranging from your
+                            Over the years, Ive worked on various projects, ranging from your
                             typical weather applications to a full-stack study helper web
                             application that utilizes AI. My focus is on delivering clean,
                             maintainable code and staying up-to-date with the latest industry
