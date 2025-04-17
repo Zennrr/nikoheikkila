@@ -7,7 +7,7 @@ const config = {
         extend: {
             colors: {
                 darkBlue: "#1E3A8A",
-                lightText: "#FFFFFF"
+                lightText: "#FFFFFFF"
             }
         }
     },

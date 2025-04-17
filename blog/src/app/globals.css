@@ -12,22 +12,24 @@
     }
 }
 
-body {
-    color: rgb(var(--foreground-rgb));
-    background: rgb(var(--background-rgb));
-}
-
 html,
 body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     background-color: #191f30;
-    color: #ffffff;
     font-family: Helvetica, Arial, sans-serif;
     transition:
         background-color 0.7s,
         color 0.7s;
+}
+
+body.default-site {
+    color: #ffffff !important;
+}
+
+body.outstatic-dashboard {
+    color: #000000 !important;
 }
 
 .font-helvetica {
