@@ -48,7 +48,7 @@ export default function Home() {
                             Welcome to the blog of{" "}
                             <span className="text-blue-400">Niko Heikkilä</span>
                         </h1>
-                        <p className="text-lg">
+                        <p className="text-2xl text-lg">
                             In this blog I write about my projects, experiences, thoughts, and
                             general news about my career.
                         </p>

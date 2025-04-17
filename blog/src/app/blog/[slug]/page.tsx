@@ -25,7 +25,7 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
     return (
         <div className="prose mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
             <h1 className="mb-6 text-center text-4xl font-extrabold text-white">{data.title}</h1>
-            <p className="mb-8 text-center text-sm text-blue-300">
+            <p className="text-1xl mb-8 text-center font-bold text-blue-300">
                 {new Date(data.publishedAt).toLocaleDateString(undefined, {
                     year: "numeric",
                     month: "long",

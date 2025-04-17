@@ -14,10 +14,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className="flex min-h-screen flex-col bg-blue-900 font-sans text-white">
+            <body className="bg-color flex min-h-screen flex-col font-sans text-white">
                 <Navbar />
                 <main className="flex-grow">{children}</main>
-                <footer className="border-t bg-blue-900 py-4 text-center text-sm">
+                <footer className="bg-color border-t py-4 text-center text-sm">
                     <div className="mx-auto max-w-6xl px-4">
                         © {new Date().getFullYear()} Niko Heikkila. All rights reserved.
                     </div>

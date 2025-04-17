@@ -9,7 +9,7 @@ export default function About() {
                     {/* Image Section */}
                     <div className="flex-shrink-0">
                         <Image
-                            src="/profile.jpg" // Replace with the actual path to your image
+                            src="/profile.jpg"
                             alt="Niko Heikkilä"
                             width={192}
                             height={192}
@@ -42,25 +42,70 @@ export default function About() {
 
                 {/* Skills and Experiences Section */}
                 <section className="mb-12">
-                    <h2 className="mb-6 text-3xl font-bold">Skills & Experiences</h2>
+                    <h2 className="mb-6 text-4xl font-bold">Skills & Experiences</h2>
                     <div className="space-y-6">
-                        <p>
+                        <p className="mt-4 text-lg">
                             I specialize in building modern, scalable web applications. I have
                             experience working with both frontend and backend development, creating
                             seamless user experiences and robust APIs.
                         </p>
-                        <p>
+                        <p className="mt-4 text-lg">
                             Over the years, I've worked on various projects, ranging from your
                             typical weather applications to a full-stack study helper web
                             application that utilizes AI. My focus is on delivering clean,
                             maintainable code and staying up-to-date with the latest industry
                             trends.
                         </p>
-                        <ul className="list-inside list-disc space-y-2">
-                            <li>Frontend: React, Next.js, Tailwind CSS</li>
-                            <li>Backend: Node.js, Express, REST APIs</li>
-                            <li>Tools: Git, Docker, CI/CD pipelines</li>
-                        </ul>
+                        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                            <div className="flex flex-col items-center justify-center rounded-lg bg-blue-800 p-4 shadow-md">
+                                <h3 className="mb-4 text-center text-3xl font-bold text-white">
+                                    Frontend
+                                </h3>
+                                <ul className="m-0 list-none space-y-1 p-0 text-center text-xl text-blue-100">
+                                    <li>React</li>
+                                    <li>Next.js</li>
+                                    <li>Tailwind CSS</li>
+                                    <li>TypeScript</li>
+                                    <li>JavaScript</li>
+                                </ul>
+                            </div>
+                            <div className="flex flex-col items-center justify-center rounded-lg bg-blue-800 p-4 shadow-md">
+                                <h3 className="mb-4 text-center text-3xl font-bold text-white">
+                                    Backend
+                                </h3>
+                                <ul className="m-0 list-none space-y-1 p-0 text-center text-xl text-blue-100">
+                                    <li>Node.js</li>
+                                    <li>Express</li>
+                                    <li>REST API</li>
+                                    <li>MySQL</li>
+                                    <li>JWT</li>
+                                </ul>
+                            </div>
+                            <div className="flex flex-col items-center justify-center rounded-lg bg-blue-800 p-4 shadow-md">
+                                <h3 className="mb-4 text-center text-3xl font-bold text-white">
+                                    DevOps
+                                </h3>
+                                <ul className="m-0 list-none space-y-1 p-0 text-center text-xl text-blue-100">
+                                    <li>Docker</li>
+                                    <li>GitHub</li>
+                                    <li>GitLab</li>
+                                    <li>Bash</li>
+                                    <li>AWS</li>
+                                </ul>
+                            </div>
+                            <div className="flex flex-col items-center justify-center rounded-lg bg-blue-800 p-4 shadow-md">
+                                <h3 className="mb-4 text-center text-3xl font-bold text-white">
+                                    Other
+                                </h3>
+                                <ul className="m-0 list-none space-y-1 p-0 text-center text-xl text-blue-100">
+                                    <li>C#</li>
+                                    <li>C++</li>
+                                    <li>Java</li>
+                                    <li>Agile/Scrum</li>
+                                    <li>PC Assembly</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -72,7 +117,7 @@ export default function About() {
                             href="https://github.com/Zennrr"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="rounded-md bg-blue-500 px-4 py-2 text-white no-underline hover:bg-blue-600"
+                            className="rounded-md bg-black px-4 py-2 text-white no-underline hover:bg-blue-600"
                         >
                             GitHub
                         </a>
@@ -80,9 +125,17 @@ export default function About() {
                             href="https://www.linkedin.com/in/niko-heikkil%C3%A4-69203522a/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="rounded-md bg-blue-500 px-4 py-2 text-white no-underline hover:bg-blue-600"
+                            className="rounded-md bg-black px-4 py-2 text-white no-underline hover:bg-blue-600"
                         >
                             LinkedIn
+                        </a>
+                        <a
+                            href="https://github.com/Zennrr/nikoheikkila/tree/main"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-md bg-black px-4 py-2 text-white no-underline hover:bg-blue-600"
+                        >
+                            Source Code
                         </a>
                     </div>
                 </section>
