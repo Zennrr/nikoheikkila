@@ -1,8 +1,10 @@
-/** @type {import('next').NextConfig} */
+import withMDX from "@next/mdx";
+
 const nextConfig = {
-    images: {
-        domains: ["placehold.co", "images.unsplash.com"]
-    }
+    pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+    devIndicators: false
 };
 
-export default nextConfig;
+export default withMDX({
+    extension: /\.mdx?$/
+})(nextConfig);

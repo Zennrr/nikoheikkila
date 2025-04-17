@@ -24,9 +24,8 @@ type ButtonProps = BaseButtonProps & {
 
 const variantStyles = {
     primary: "bg-blue-600 text-white hover:bg-blue-700",
-    secondary:
-        "bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-100 dark:hover:bg-gray-600",
-    outline: "border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800"
+    secondary: "bg-blue-300 text-white hover:bg-blue-400",
+    outline: "border border-blue-300 text-blue-300 hover:bg-blue-400 hover:text-white"
 };
 
 const sizeStyles = {
@@ -67,7 +66,7 @@ export function ButtonLink({
     return (
         <Link
             href={href}
-            className={`inline-flex items-center rounded-md transition-colors ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
+            className={`inline-flex items-center rounded-md no-underline transition-colors ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
             {...props}
         >
             {children}

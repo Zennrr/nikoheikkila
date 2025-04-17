@@ -1,39 +1,80 @@
-import Link from "next/link";
+"use client";
+
+import { Card } from "../components/ui/Card";
+import { ButtonLink } from "../components/ui/Button";
+import { useEffect, useState } from "react";
 
 export default function Blog() {
-    return (
-        <div className="py-12">
-            <h1 className="mb-8 text-3xl font-bold">Blog Posts</h1>
+    interface Post {
+        filename: string;
+        title: string;
+        excerpt: string;
+        date: string;
+        publishedAt?: string;
+    }
 
-            <div className="space-y-8">
-                {[1, 2, 3, 4, 5].map((i) => (
-                    <article key={i} className="border-b pb-8">
-                        <h2 className="mb-2 text-2xl font-bold">
-                            <Link
-                                href={`/blog/sample-post-${i}`}
-                                className="hover:text-blue-600 dark:hover:text-blue-400"
-                            >
-                                Sample Blog Post {i}
-                            </Link>
-                        </h2>
-                        <div className="mb-4 text-gray-500 dark:text-gray-400">
-                            March {10 + i}, 2025 • 5 min read
-                        </div>
-                        <p className="mb-4">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.
-                        </p>
-                        <Link
-                            href={`/blog/sample-post-${i}`}
-                            className="text-blue-600 hover:underline dark:text-blue-400"
-                        >
-                            Read more →
-                        </Link>
-                    </article>
-                ))}
-            </div>
+    const [posts, setPosts] = useState<Post[]>([]);
+
+    useEffect(() => {
+        async function fetchPosts() {
+            const res = await fetch("/api/get-posts");
+            if (res.ok) {
+                const data = await res.json();
+                const sortedPosts = data
+                    .map((post: Post) => ({
+                        ...post,
+                        publishedAt: post.publishedAt
+                    }))
+                    .sort(
+                        (a: Post, b: Post) =>
+                            new Date(b.publishedAt || 0).getTime() -
+                            new Date(a.publishedAt || 0).getTime()
+                    );
+                setPosts(sortedPosts);
+            } else {
+                console.error("Failed to fetch posts");
+            }
+        }
+        fetchPosts();
+    }, []);
+
+    return (
+        <div className="font-helvetica bg-dark-blue text-white">
+            <main className="mx-auto flex max-w-5xl flex-col gap-16 px-4 py-16">
+                <section className="text-center">
+                    <h1 className="text-4xl font-extrabold">
+                        Welcome to the <span className="text-blue-400">Blog</span>
+                    </h1>
+                    <p className="mt-4 text-lg">
+                        Explore my latest posts about projects, experiences, and thoughts.
+                    </p>
+                </section>
+
+                <section>
+                    <h2 className="mb-8 text-3xl font-bold">All Posts</h2>
+                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        {posts.map((post) => (
+                            <Card
+                                key={`${post.filename}-${post.publishedAt}`}
+                                title={post.title}
+                                description={post.excerpt}
+                                href={`/blog/${post.filename.replace(/\.mdx?$/, "")}`}
+                                date={post.publishedAt ?? null}
+                            />
+                        ))}
+                    </div>
+                </section>
+
+                <div className="mt-10 text-center">
+                    <ButtonLink
+                        href="/"
+                        size="lg"
+                        className="bg-blue-500 text-white hover:bg-blue-600"
+                    >
+                        Back to Home
+                    </ButtonLink>
+                </div>
+            </main>
         </div>
     );
 }

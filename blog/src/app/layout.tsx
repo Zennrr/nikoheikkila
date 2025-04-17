@@ -14,10 +14,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className="flex min-h-screen flex-col bg-gray-50 font-sans text-gray-900 antialiased transition-colors dark:bg-gray-900 dark:text-gray-100">
+            <body className="bg-color flex min-h-screen flex-col font-sans text-white">
                 <Navbar />
                 <main className="flex-grow">{children}</main>
-                <footer className="border-t bg-white py-4 text-center text-sm dark:border-gray-700 dark:bg-gray-800">
+                <footer className="bg-color border-t py-4 text-center text-sm">
                     <div className="mx-auto max-w-6xl px-4">
                         © {new Date().getFullYear()} Niko Heikkila. All rights reserved.
                     </div>
