@@ -20,11 +20,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          if [ -f package-lock.json ]; then
+          cd blog
           npm ci
-          else
-          npm install
-          fi
 
       - name: Run linting
         run: npm run lint
