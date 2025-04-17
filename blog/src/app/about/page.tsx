@@ -44,12 +44,12 @@ export default function About() {
                 <section className="mb-12">
                     <h2 className="mb-6 text-4xl font-bold">Skills & Experiences</h2>
                     <div className="space-y-6">
-                        <p className="mt-4 text-lg">
+                        <p className="mt-4 text-xl">
                             I specialize in building modern, scalable web applications. I have
                             experience working with both frontend and backend development, creating
                             seamless user experiences and robust APIs.
                         </p>
-                        <p className="mt-4 text-lg">
+                        <p className="mt-4 text-xl">
                             Over the years, Ive worked on various projects, ranging from your
                             typical weather applications to a full-stack study helper web
                             application that utilizes AI. My focus is on delivering clean,
