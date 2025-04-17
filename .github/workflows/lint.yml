@@ -19,13 +19,13 @@ jobs:
           node-version: lts/*
 
       - name: Install dependencies
-        working-directory: blog
+        working-directory: ./blog
         run: npm ci
 
       - name: Run linting
-        working-directory: blog
+        working-directory: ./blog
         run: npm run lint
 
       - name: Run type checking
-        working-directory: blog
+        working-directory: ./blog
         run: npm run type-check
