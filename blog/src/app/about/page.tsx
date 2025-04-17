@@ -20,7 +20,7 @@ export default function About() {
                     {/* Text Section */}
                     <div>
                         <h1 className="text-4xl font-extrabold">About Me</h1>
-                        <p className="mt-4 text-lg">
+                        <p className="mt-4 text-xl">
                             Hi, Im Niko Heikkilä, a software engineer and web developer based in
                             Tampere, Finland. I have experience ranging from personal projects to
                             working with larger teams on various applications in both frontend and
@@ -28,7 +28,7 @@ export default function About() {
                             experience in game development and mobile development. I am always
                             looking and open to learning new things be it technologies or languages.
                         </p>
-                        <p className="mt-4 text-lg">
+                        <p className="mt-4 text-xl">
                             Coding has been a part of my life since junior high school. I started
                             properly learning programming in SASKYs &quot;Tampereen Palvelualan
                             Ammattiopisto&quot; vocational school studying game development. After
