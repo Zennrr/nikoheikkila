@@ -1,7 +1,11 @@
 import fs from "fs";
 import path from "path";
 
-export async function DELETE(req) {
+interface DeleteRequest {
+    json(): Promise<{ filename: string }>;
+}
+
+export async function DELETE(req: DeleteRequest): Promise<Response> {
     const { filename } = await req.json();
     const filePath = path.join(process.cwd(), "src/app/posts", filename);
 
