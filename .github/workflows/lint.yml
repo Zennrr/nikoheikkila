@@ -1,31 +1,31 @@
-# Run the basic linting cheks before merging to main branch
-name: NextJS lint
-on:
-    push:
-        branches:
-            - main
+name: Lint and Type Check
 
-    pull_request:
-        branches: [main]
-        types: [opened, synchronize]
+on:
+  pull_request:
+    branches:
+      - main
 
 jobs:
-    lint:
-        name: Lint
-        runs-on: ubuntu-22.04
-        env:
-            NEXT_TELEMETRY_DISABLED: 1
-        steps:
-            - uses: actions/checkout@v4.1.7
-            - uses: actions/setup-node@v4.0.2
-              with:
-                  node-version: "20"
+  lint-and-typecheck:
+    runs-on: ubuntu-latest
 
-            - name: Install dependencies
-              run: cd blog && npm ci
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Run NextJS lint
-              run: cd blog && npm run lint
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
 
-            - name: Run NextJS type check
-              run: cd blog && npm run type-check
+      - name: Install dependencies
+        working-directory: blog
+        run: npm ci
+
+      - name: Run linting
+        working-directory: blog
+        run: npm run lint
+
+      - name: Run type checking
+        working-directory: blog
+        run: npm run type-check
