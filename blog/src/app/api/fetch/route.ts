@@ -1,11 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
 
 const postsDirectory = path.join(process.cwd(), "../outstatic/content/posts");
 
-export async function GET(req: { url: string }) {
+export async function GET(req: NextRequest) {
     const url = new URL(req.url);
     const filename = url.searchParams.get("filename");
     if (!filename) {
