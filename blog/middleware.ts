@@ -6,7 +6,10 @@ export function middleware(req: NextRequest) {
 
     if (url.pathname.startsWith("/outstatic")) {
         const authToken = req.cookies.get("admin-auth-token")?.value;
-        if (authToken !== process.env.ADMIN_AUTH_TOKEN) {
+
+        const adminAuthToken = process.env.NEXT_PUBLIC_ADMIN_AUTH_TOKEN;
+
+        if (authToken !== adminAuthToken) {
             url.pathname = "/403";
             return NextResponse.redirect(url);
         }
