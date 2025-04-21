@@ -17,6 +17,9 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
     const { slug } = params;
 
     const filePath = path.join(postsDirectory, `${slug}.mdx`);
+    if (!fs.existsSync(filePath)) {
+        return <div>Post not found</div>;
+    }
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
 
