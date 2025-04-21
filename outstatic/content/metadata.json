@@ -1,38 +1,6 @@
 {
-  "commit": "c9b886b99ec475fcc8359cf7ae3f81a4d9dd96fd",
-  "generated": "2025-04-08T13:38:21.802Z",
+  "commit": "8e1cbe02a4ef67a89eb15dea1af1a524d20daa02",
+  "generated": "2025-04-21T15:40:47.355Z",
   "metadata": [
-    {
-      "__outstatic": {
-        "commit": "36fea15bc70be2117fb5cfee903183eb4685488e",
-        "hash": "1024804803",
-        "path": "outstatic/content/posts/first-blog-post.mdx"
-      },
-      "author": {
-        "name": "Niko Heikkilä",
-        "picture": "https://avatars.githubusercontent.com/u/105411101?v=4"
-      },
-      "collection": "posts",
-      "publishedAt": "2025-03-31T16:40:05.395Z",
-      "slug": "first-blog-post",
-      "status": "published",
-      "title": "First blog post"
-    },
-    {
-      "__outstatic": {
-        "commit": "c9b886b99ec475fcc8359cf7ae3f81a4d9dd96fd",
-        "hash": "3146534017",
-        "path": "outstatic/content/posts/second-blog.mdx"
-      },
-      "author": {
-        "name": "Niko Heikkilä",
-        "picture": "https://avatars.githubusercontent.com/u/105411101?v=4"
-      },
-      "collection": "posts",
-      "publishedAt": "2025-04-08T13:55:39.703Z",
-      "slug": "second-blog",
-      "status": "draft",
-      "title": "second-blog"
-    }
   ]
 }
