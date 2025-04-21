@@ -1,6 +1,22 @@
 {
-  "commit": "8e1cbe02a4ef67a89eb15dea1af1a524d20daa02",
-  "generated": "2025-04-21T15:40:47.355Z",
+  "commit": "3a9976930904ba18332ff675044880e5c92402df",
+  "generated": "2025-04-21T17:44:20.848Z",
   "metadata": [
+    {
+      "__outstatic": {
+        "commit": "3a9976930904ba18332ff675044880e5c92402df",
+        "hash": "2239232597",
+        "path": "outstatic/content/posts/blog-page-release.mdx"
+      },
+      "author": {
+        "name": "Niko Heikkilä",
+        "picture": "https://avatars.githubusercontent.com/u/105411101?v=4"
+      },
+      "collection": "posts",
+      "publishedAt": "2025-04-21T18:00:01.038Z",
+      "slug": "blog-page-release",
+      "status": "draft",
+      "title": "Blog page release"
+    }
   ]
 }
