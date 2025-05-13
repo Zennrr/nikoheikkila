@@ -22,7 +22,7 @@ test("About page renders correctly", async ({ page }) => {
     // Verify the Frontend skills
     const frontendSkills = page.locator("h3", { hasText: "Frontend" });
     await expect(frontendSkills).toBeVisible();
-    const frontendList = page.locator("ul").nth(0); // Assuming it's the first list
+    const frontendList = page.locator("ul").nth(0);
     await expect(frontendList).toContainText("React");
     await expect(frontendList).toContainText("Next.js");
     await expect(frontendList).toContainText("Tailwind CSS");
@@ -30,7 +30,7 @@ test("About page renders correctly", async ({ page }) => {
     // Verify the Backend skills
     const backendSkills = page.locator("h3", { hasText: "Backend" });
     await expect(backendSkills).toBeVisible();
-    const backendList = page.locator("ul").nth(1); // Assuming it's the second list
+    const backendList = page.locator("ul").nth(1);
     await expect(backendList).toContainText("Node.js");
     await expect(backendList).toContainText("Express");
 

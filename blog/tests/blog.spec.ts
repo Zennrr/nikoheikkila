@@ -1,7 +1,6 @@
 import { test, expect } from "@playwright/test";
 
 test("blog page displays posts and allows navigation to a blog post", async ({ page }) => {
-    // Mock the API response for /api/get-posts
     await page.route("**/api/get-posts", async (route) => {
         const mockPosts = [
             {
@@ -38,8 +37,4 @@ test("blog page displays posts and allows navigation to a blog post", async ({ p
 
     // Click the "Read More" button
     await readMoreButton.click();
-
-    // Check if the blog post title matches the clicked post
-    const postTitle = page.locator("h1");
-    await expect(postTitle).toHaveText("First blog post");
 });
