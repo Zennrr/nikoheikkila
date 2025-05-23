@@ -38,20 +38,23 @@ test("About page renders correctly", async ({ page }) => {
     const socialLinksHeader = page.locator("h2", { hasText: "Connect with Me" });
     await expect(socialLinksHeader).toBeVisible();
 
+    // Define the connect section once to use for all link tests
+    const connectSection = page.locator('section:has(h2:text("Connect with Me"))');
+
     // Verify the GitHub link
-    const githubLink = page.locator('a[href="https://github.com/Zennrr"]');
+    const githubLink = connectSection.locator('a[href="https://github.com/Zennrr"]');
     await expect(githubLink).toBeVisible();
     await expect(githubLink).toHaveText("GitHub");
 
     // Verify the LinkedIn link
-    const linkedInLink = page.locator(
+    const linkedInLink = connectSection.locator(
         'a[href="https://www.linkedin.com/in/niko-heikkil%C3%A4-69203522a/"]'
     );
     await expect(linkedInLink).toBeVisible();
     await expect(linkedInLink).toHaveText("LinkedIn");
 
     // Verify the Source Code link
-    const sourceCodeLink = page.locator(
+    const sourceCodeLink = connectSection.locator(
         'a[href="https://github.com/Zennrr/nikoheikkila/tree/main"]'
     );
     await expect(sourceCodeLink).toBeVisible();

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 import BodyWrapper from "./components/layout/BodyWrapper";
 
 export const metadata: Metadata = {
@@ -14,11 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <BodyWrapper>
                 <Navbar />
                 <main className="flex-grow">{children}</main>
-                <footer className="bg-color border-t py-4 text-center text-sm">
-                    <div className="mx-auto max-w-6xl px-4">
-                        © {new Date().getFullYear()} Niko Heikkilä. All rights reserved.
-                    </div>
-                </footer>
+                <Footer />
             </BodyWrapper>
         </html>
     );
