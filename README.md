@@ -28,7 +28,7 @@ To see detailed time tracking for this project, check my GitHub Project board: [
 
 The board includes:
 
-- Task descriptions
+- Tasks to do
 - Hours spent on each task
 - Current status of tasks
 - Estimate of total hours spent on the project
