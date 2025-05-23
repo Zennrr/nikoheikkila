@@ -50,6 +50,10 @@ The board includes:
 ## Local Development
 
 ```bash
+# Clone the repository
+git clone https://github.com/Zennrr/nikoheikkila.git
+cd nikoheikkila
+
 # Navigate to the blog directory
 cd blog
 
