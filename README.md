@@ -32,7 +32,7 @@ The board includes:
 - Tasks to do
 - Hours spent on each task
 - Current status of tasks
-- Estimate of total hours spent on the project
+- Total hours spent on the project
 
 ## Technology Stack
 
