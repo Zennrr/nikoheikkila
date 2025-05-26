@@ -7,6 +7,7 @@ The website is currently running at: [https://nikoheikkila.vercel.app](https://n
 ## Project Description
 
 This is a personal blog website built with Next.js, allowing me to publish my thoughts, talk about my projects and news of my career. The site features a clean, responsive design with a modern tech stack.
+Additional details and information about the project can be found from the projects wiki tab.
 
 ### Features
 
