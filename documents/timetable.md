@@ -15,6 +15,7 @@
 |01.04.2025|5|CMS Implementation|Implementing my CMS of choice|
 |01.04.2025|3|Setup Linting|Set up linting to the project
 |08.04.2025|3|Changing CMS|Thought i had to switch CMS, didnt end up needing to|
+|09.04.2025|8|Blog posts|Programming and styling the blog posts|
 |14.04.2025|5|Initial About page|Programmed the initial About page|
 |17.04.2025|4|Setup CI/CD pipeline|Created a CI/CD pipeline for linting and tests|
 |17.04.2025|4|Playwright tests|Created Playwright tests for the project|
