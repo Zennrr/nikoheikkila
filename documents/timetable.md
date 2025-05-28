@@ -1,7 +1,7 @@
 <h1>Hours spent on the project</h1>
   
 | Date finished | Hours spent | Ticket/task | Comment |
-|:--:|:--:|:--|	
+|:--:|:--:|:--:|:--	
 |16.03.2025|1|Setup GitHub repo|Setting up project repo|
 |16.03.2025|1|Setup Wiki documentation|Setting up GitHub wiki|
 |16.03.2025|1|Next.js Setup|Setting up Next.js for the project|
