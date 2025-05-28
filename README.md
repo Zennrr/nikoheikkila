@@ -25,7 +25,7 @@ Additional details and information about the project can be found from the proje
 
 ## Time Tracking
 
-To see detailed time tracking for this project, check my GitHub Project board: [Project Kanban Board](https://github.com/users/Zennrr/projects/2)
+Detailed timetracking here: [Timetable](https://github.com/Zennrr/nikoheikkila/blob/main/documents/timetable.md)
 
 The board includes:
 
