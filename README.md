@@ -29,9 +29,10 @@ Detailed timetracking here: [Timetable](https://github.com/Zennrr/nikoheikkila/b
 
 The board includes:
 
-- Tasks to do
+- Tasks done
 - Hours spent on each task
-- Current status of tasks
+- Date when task was finished
+- Comment on each task
 - Total hours spent on the project
 
 ## Technology Stack
